@@ -1,0 +1,124 @@
+{
+    "ver": "1.0.0",
+    "authors": [
+        "seanjungbluth",
+        "psdehal"
+    ],
+    "contact": "help@kbase.us",
+    "visible" : true,
+    "categories": ["active","communities","annotation"],
+    "widgets": {
+        "input": null,
+        "output": "no-display"
+    },
+    "parameters": [
+        {
+            "id": "inputObjectRef",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types": ["KBaseGenomes.ContigSet",
+                                   "KBaseGenomeAnnotations.Assembly",
+                                   "KBaseGenomes.Genome",
+                                   "KBaseSets.GenomeSet",
+                                   "KBaseSearch.GenomeSet",
+                                   "KBaseSets.AssemblySet",
+                                   "KBaseMetagenomes.BinnedContigs" ]
+            }
+        },
+        {
+            "id" : "reads_list",
+            "optional" : true,
+            "advanced" : false,
+            "allow_multiple" : true,
+            "default_values" : [ "" ],
+            "field_type" : "text",
+            "text_options" : {
+              "valid_ws_types" : ["KBaseFile.PairedEndLibrary", "KBaseFile.SingleEndLibrary", "KBaseAssembly.PairedEndLibrary", "KBaseAssembly.SingleEndLibrary"]
+            }
+        },
+        {
+            "id": "prodigal_method",
+            "optional": true,
+            "advanced": true,
+            "allow_multiple": false,
+            "default_values": [ "meta" ],
+            "field_type": "dropdown",
+            "dropdown_options": {
+                "options": [
+                    {
+                        "value": "meta",
+                        "display": "meta",
+                        "id": "meta",
+                        "ui_name": "meta"
+                    },
+                    {
+                        "value": "single",
+                        "display": "single",
+                        "id": "single",
+                        "ui_name": "single"
+                    }
+                ]
+            }
+        },
+        {
+          "id": "kegg_module_cutoff",
+          "optional": true,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values": [ "0.75" ],
+          "field_type": "text",
+          "text_options": {
+              "validate_as" : "float",
+              "min_float" : 0.1,
+              "max_float" : 1.0
+            }
+        }
+    ],
+    "behavior": {
+        "service-mapping": {
+            "url": "",
+            "name": "kb_metabolic",
+            "method": "run_kb_metabolic",
+            "input_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspace_name"
+                },{
+                    "narrative_system_variable": "workspace_id",
+                    "target_property": "workspace_id"
+                },{
+                    "input_parameter": "inputObjectRef",
+                    "target_property": "inputObjectRef",
+                    "target_type_transform":"ref"
+                },
+                {
+                    "input_parameter": "reads_list",
+                    "target_type_transform": "list<ref>",
+                    "target_property": "reads_list"
+                },
+                {
+                    "input_parameter": "prodigal_method",
+                    "target_property": "prodigal_method"
+                },
+                {
+                    "input_parameter": "kegg_module_cutoff",
+                    "target_property": "kegg_module_cutoff"
+                }
+            ],
+            "output_mapping": [
+                {
+                    "service_method_output_path": [0,"report_name"],
+                    "target_property": "report_name"
+                },{
+                    "service_method_output_path": [0,"report_ref"],
+                    "target_property": "report_ref"
+                }
+            ]
+        }
+    },
+    "job_id_output_field": "docker"
+}

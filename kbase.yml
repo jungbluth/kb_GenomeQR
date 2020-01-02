@@ -1,0 +1,17 @@
+module-name:
+    kb_metabolic
+
+module-description:
+    A KBase module
+
+service-language:
+    python
+
+module-version:
+    1.0.0
+
+owners:
+    [seanjungbluth, psdehal]
+
+data-version:
+    1.0

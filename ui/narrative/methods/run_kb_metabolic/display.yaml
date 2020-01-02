@@ -1,0 +1,153 @@
+#
+# define display information
+#
+name     : Predict metabolic and biogeochemical functional traits using METABOLIC - v2.0
+subtitle : predict metabolic and biogeochemical traits
+tooltip  : predict metabolic and biogeochemical traits
+
+icon: METABOLIC_icon.png
+
+screenshots:
+    - METABOLIC_banner.png
+    - METABOLIC_workflow.png
+
+#
+# define a set of similar methods that might be useful to the user
+#
+suggestions:
+    apps:
+        related:
+            [kb_hmmer]
+        next:
+            []
+    methods:
+        related:
+            []
+        next:
+            ["HMMER_EnvBioelement_Search", "HMMER_dbCAN_Search", "HMMER_MSA_Search", "HMMER_Local_MSA_Group_Search"]
+
+#
+# Configure the display and description of parameters
+#
+parameters :
+    inputObjectRef :
+        ui-name : |
+            Input assembly, genome, or set
+        short-hint : |
+            An assembly, genome or set
+        long-hint  : |
+            A single assembly or genome object or an assembly set or genome set.
+
+    reads_list :
+        ui-name : Reads (optional)
+        short-hint : A list of reads object (PairedEndLibrary/SingleEndLibrary) upon which METABOLIC will be run
+        long-hint  : A list of reads object (PairedEndLibrary/SingleEndLibrary) upon which METABOLIC will be run
+
+    prodigal_method :
+        ui-name : |
+            Prodigal Gene Calling Mode
+        short-hint : |
+            Prodigal genes calling: meta or single mode
+        long-hint  : |
+            Prodigal genes calling: meta or single mode
+
+    kegg_module_cutoff :
+        ui-name : |
+            Fraction of KEGG Module Required for Assignment
+        short-hint : |
+            The cutoff value to assign the presence of a specific KEGG module
+        long-hint  : |
+            The cutoff value to assign the presence of a specific KEGG module
+
+description : |
+    <p>METABOLIC is software that enables the prediction of metabolic and biogeochemical functional trait profiles to any given genome datasets. These genome datasets can either be metagenome-assembled genomes (MAGs), single-cell amplified genomes (SAGs) or pure culture sequenced genomes. It can also calculate the genome coverage. The information is parsed and diagrams for elemental/biogeochemical cycling pathways (currently Nitrogen, Carbon, Sulfur and "other") are produced.</p>
+    <p><hr></p>
+    <p><hr></p>
+    <p><i>Implemented for KBase by <a href="mailto:sjungbluth@lbl.gov">Sean Jungbluth(sjungbluth@lbl.gov)</a></i></p>
+    <p><hr></p>
+
+publications:
+    -
+        display-text : |
+            Zhou Z, Tran P, Liu Y, Kieft K, Anantharaman K. METABOLIC: A scalable high-throughput metabolic and biogeochemical functional trait profiler based on microbial genomes. 2019; BioRxiv. doi:10.1101/761643
+        link: https://doi.org/10.1101/761643
+
+    -
+        display-text : |
+            METABOLIC source:
+        link: https://github.com/AnantharamanLab/METABOLIC
+
+    -
+        pmid: 22039361
+        display-text: |
+            Eddy SR. Accelerated Profile HMM Searches. PLOS Computational Biology. 2011;7: e1002195. doi:10.1371/journal.pcbi.1002195
+        link: https://www.ncbi.nlm.nih.gov/pubmed/22039361
+
+    -
+        pmid: 31742321
+        display-text: |
+            Aramaki T, Blanc-Mathieu R, Endo H, Ohkubo K, Kanehisa M, Goto S, Ogata H. KEGG ortholog assignment based on profile HMM and adaptive score threshold. 2019; btz859. doi:10.1093/bioinformatics/btz859
+        link: https://www.ncbi.nlm.nih.gov/pubmed/31742321
+
+    -
+        pmid: 30053267
+        display-text: |
+            Huang L, Zhang H, Wu P, Entwistle S, Li X, Yohe T, Yi H, Yang Z, Yin Y. dbCAN-seq: a database of carbohydrate-active enzyme (CAZyme) sequence and annotation. Nucleic Acids Research. 2018;46: D516-D521. doi:10.1093/nar/gkx894
+        link: https://www.ncbi.nlm.nih.gov/pubmed/30053267
+
+    -
+        pmid: 20211023
+        display-text: |
+            Hyatt D, Chen G-L, LoCascio PF, Land ML, Larimer FW, Hauser LJ. Prodigal: prokaryotic gene recognition and translation initiation site identification. BMC Bioinformatics. 2010;11: 119. doi:10.1186/1471-2105-11-119
+        link: https://www.ncbi.nlm.nih.gov/pubmed/20211023
+
+    -
+        pmid: 25697820
+        display-text: |
+            Tarasov A, Vilella AJ, Cuppen E, Nijman IJ, Prins P. Sambamba: fast processing of NGS alignment formats. Bioinformatics. 2015;31: 2032-2034. doi:10.1093/bioinformatics/btv098
+        link: https://www.ncbi.nlm.nih.gov/pubmed/25697820
+
+    -
+        pmid: 19892822
+        display-text: |
+            Rawlings ND, Barrett AJ, Bateman A. MEROPS: the peptidase database. Nucleic Acids Research. 2010;38: D227-D233. doi:10.1093/nar/gkp971
+        link: https://www.ncbi.nlm.nih.gov/pubmed/19892822
+
+    -
+        pmid: 30357350
+        display-text: |
+            El-Gebali S, Mistry J, Bateman A, Eddy SR, Luciani A, Potter SC, Qureshi M, Richardson LJ, Salazar GA, Smart A, Sonnhammer ELL, Hirsh L, Paladin L, Piovesan D, Tosatto SCE, Finn RD. The Pfam protein families database in 2019. Nucleic Acids Research. 2019;47: D427-D432. doi:10.1093/nar/gky995
+        link: https://www.ncbi.nlm.nih.gov/pubmed/30357350
+
+    -
+        pmid: 23197656
+        display-text: |
+            Haft DH, Selengut JD, Richter RA, Harkins D, Basu MK, Beck E. TIGRFAMs and Genome Properties in 2013. Nucleic Acids Research. 2013;41: D387-D395. doi:10.1093/nar/gks1234
+        link: https://www.ncbi.nlm.nih.gov/pubmed/23197656
+
+    -
+        pmid: 25402007
+        display-text: |
+            Buchfink B, Xie C, Huson DH. Fast and sensitive protein alignment using DIAMOND. Nature Methods. 2015;12: 59-60. doi:10.1038/nmeth.3176
+        link: https://www.ncbi.nlm.nih.gov/pubmed/25402007
+
+    -
+        pmid: 22388286
+        display-text: |
+            Langmead B, Salzberg SL. Fast gapped-read alignment with Bowtie 2. Nature Methods. 2012;9: 357-359. doi:10.1038/nmeth.1923
+        link: https://www.ncbi.nlm.nih.gov/pubmed/22388286
+
+    -
+        display-text: |
+            BamTools:
+        link: https://github.com/pezmaster31/bamtools
+
+    -
+        display-text: |
+            CoverM:
+        link: https://github.com/wwood/CoverM
+
+    -
+        display-text: |
+            R: A Language and Environment for Statistical Computing:
+        link: http://www.R-project.org/
